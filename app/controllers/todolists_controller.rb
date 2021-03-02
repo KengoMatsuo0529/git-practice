@@ -6,6 +6,9 @@ class TodolistsController < ApplicationController
   def create
     list = List.new(list_params)
     list.score = Language.get_data(list_params[:body])  #この行を追加
+    url = Entity.get_data(list_params[:body])
+    list.name = url.values[0]
+    # list.name = Entity.get_data(list_params[:body])  #この行を追加
     list.save
     tags = Vision.get_image_data(list.image)    
     tags.each do |tag|

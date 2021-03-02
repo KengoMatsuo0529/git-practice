@@ -10,15 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_01_060040) do
+ActiveRecord::Schema.define(version: 2021_03_02_065905) do
 
-  create_table "lists", force: :cascade do |t|
+  create_table "Lists", force: :cascade do |t|
     t.string "title"
     t.string "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_id"
     t.decimal "score", precision: 5, scale: 3
+    t.string "name"
+    t.decimal "magnitude", precision: 5, scale: 3
   end
 
   create_table "tags", force: :cascade do |t|
