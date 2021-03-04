@@ -6,12 +6,16 @@
       <span class="list-body"><%= list.body %></span>
       <span><%= link_to "エンティティ名",list.name %></span>
       <span class="sentiment-score">本文の感情分析スコア<%= list.score %></span>
-
       
       <span class="list-title"><%=link_to list.title, todolist_path(list.id) %></span>
       <% list.tags.each do |tag| %>
         <span class="label"><%= tag.name %></span>
       <% end %>
+      <% @url = Entity.get_data(list.body) %>
+      <% @url.each do |url| %>
+        <%= link_to url["name"], url["metadata"]["wikipedia_url"] %>
+      <% end %>
+
     </div>
   </div>
 <% end %>
